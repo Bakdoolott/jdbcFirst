@@ -1,23 +1,27 @@
 package models;
 
-public class Store {
-    private Long id;
-    private String name;
+public class Product {
+private Long id;
+private String name;
+private Long price;
+
 
     @Override
     public String toString() {
-        return "Store{" +
+        return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", price=" + price +
                 '}';
     }
 
-    public Store() {
+    public Product() {
     }
 
-    public Store(Long id, String name) {
+    public Product(Long id, String name, Long price) {
         this.id = id;
         this.name = name;
+        this.price = price;
     }
 
     public Long getId() {
@@ -34,5 +38,13 @@ public class Store {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
     }
 }
