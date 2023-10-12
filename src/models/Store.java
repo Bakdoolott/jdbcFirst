@@ -6,7 +6,7 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" +
+        return "\n  Store{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

@@ -11,7 +11,7 @@ public class DbHelperImpl implements DbHelper {
     @Override
     public PreparedStatement getStatement(String sql) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\Downloads\\dbs\\storeDb.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\mirla\\Downloads\\storeDb.db");
             PreparedStatement ps = connection.prepareStatement(sql);
             return ps;
 

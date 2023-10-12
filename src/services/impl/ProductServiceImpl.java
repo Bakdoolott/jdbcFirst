@@ -14,11 +14,11 @@ public class ProductServiceImpl implements ProductService {
     DbHelper dbHelper = new DbHelperImpl();
 
     @Override
-    public String createProduct(String productName, Long price) {
+    public String createProduct(String productName, Double price) {
         PreparedStatement preparedStatement =dbHelper.getStatement("insert into tb_product (name,price) values (?,?)");
         try {
-            preparedStatement.setString(1,productName);
-            preparedStatement.setLong(2,price);
+            preparedStatement.setString(1, productName);
+            preparedStatement.setDouble(2, price);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             return "Success";
@@ -44,22 +44,6 @@ public class ProductServiceImpl implements ProductService {
         }catch (SQLException e) {
             throw new RuntimeException("Такого продукта нет");
         }
-    }
-
-    @Override
-    public Product updateProduct(Long id, String productName, Long price) {
-        PreparedStatement preparedStatement =dbHelper.getStatement("update tb_product set name=?,price=? where id=?");
-        try {
-            preparedStatement.setString(1,productName);
-            preparedStatement.setLong(2,price);
-            preparedStatement.setLong(3,id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Произошла ошибка при изменении продукта");
-        }
-        return findById(id);
     }
 
     @Override
